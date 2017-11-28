@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ab =Product(1,"Adam","Backe",1,200);
 }
 
 MainWindow::~MainWindow()
@@ -18,12 +19,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Product ab(1,"Adam","Backe",1,200);
 
     QMessageBox test;
 
     test.setText(ab.getLev());
-    QTextStream(stdout) << ab.getName() << endl;
+    QTextStream(stdout) << ab.ToString() << endl;
     test.exec();
 
 }

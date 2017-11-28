@@ -15,10 +15,12 @@ private:
 
 public:
     Product(int IdNr,QString Name,QString Lev,int Place,int NrOfItems);
+    Product();
     //~Product();
 
     QString getName() const;
     QString getLev() const;
+    QString ToString() const;
 
 
 

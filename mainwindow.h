@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "product.h"
 
 #include <QMainWindow>
 
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Product ab;
 };
 
 #endif // MAINWINDOW_H
