@@ -18,6 +18,15 @@ Product::Product()
     this->NrOfItems = 0;
 }
 
+Product::Product(int IdNr)
+{
+    this->IdNr = IdNr;
+    this->Name = "";
+    this->Lev = "";
+    this->Place = -1;
+    this->NrOfItems = 0;
+}
+
 Product::~Product()
 {
     //Tom...

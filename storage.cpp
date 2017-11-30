@@ -30,9 +30,11 @@ bool Storage::addToStoragePlace(int Place, int StorageCapacity, int IdNr)
     {
         if(counter == capacity)
         {
-            //GE ETT MEDDLEANDE OM ATT ARRAYEN ÄR FULL!
+            //GE ETT MEDDLEANDE OM ATT ARRAYEN ÄR FULL! Alltså lagret
+            //Enum, För att skicka tillbaka koder beroende på vad som hänt.
         }
         StorageArray[counter] = new StorageSpace(toAdd);
+        counter++;
     }
     return index == -1;
 }

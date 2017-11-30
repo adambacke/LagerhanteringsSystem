@@ -16,6 +16,7 @@ private:
 public:
     Product(int IdNr,QString Name,QString Lev,int Place,int NrOfItems);
     Product();
+    Product(int IdNr);
     ~Product();
 
     QString getName() const;

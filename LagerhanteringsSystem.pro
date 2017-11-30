@@ -28,13 +28,17 @@ SOURCES += \
         mainwindow.cpp \
     product.cpp \
     StorageSpace.cpp \
-    storage.cpp
+    storage.cpp \
+    ProductRegister.cpp \
+    OrderLine.cpp
 
 HEADERS += \
         mainwindow.h \
     product.h \
     StorageSpace.h \
-    storage.h
+    storage.h \
+    ProductRegister.h \
+    OrderLine.h
 
 FORMS += \
         mainwindow.ui
