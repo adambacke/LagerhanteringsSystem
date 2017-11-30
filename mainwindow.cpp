@@ -22,8 +22,7 @@ void MainWindow::on_pushButton_clicked()
 
     QMessageBox test;
 
-    test.setText(ab.getLev());
-    QTextStream(stdout) << ab.ToString() << endl;
+    test.setText(ab.ToString());
     test.exec();
 
 }
