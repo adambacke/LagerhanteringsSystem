@@ -1,6 +1,7 @@
 #ifndef PRODUCTREGISTER_H
 #define PRODUCTREGISTER_H
 #include "product.h"
+#include "storage.h"
 #include <QString>
 
 
@@ -17,7 +18,7 @@ public:
     ProductRegister(int capacity);
     ~ProductRegister();
 
-    bool addProductToRegister(int IdNr, QString name, QString lev, int Place, int NrOfItems);
+    int addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity);
     bool removeProductFromRegister(int IdNr);
     int productToFind(Product &toFind);
     void expand();

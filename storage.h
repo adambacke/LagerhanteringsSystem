@@ -15,9 +15,12 @@ public:
     Storage(int capacity);
     ~Storage();
 
-    bool addToStoragePlace(int Place, int StorageCapacity, int IdNr);
+    int addToStoragePlace(int Place, int StorageCapacity, int IdNr, int NrOfItems);
     bool removeFromStoragePlace(const int IdNr);
     int FindStoragePlace(StorageSpace &toFind) const;
+    int findStoragePlaceWithIdNr(int IdNr) const;
+
+    int FindEmptyStoragePlace();
 };
 
 #endif // STORAGE_H

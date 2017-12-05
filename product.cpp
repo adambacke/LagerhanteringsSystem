@@ -1,11 +1,10 @@
 #include "product.h"
 
-Product::Product(int IdNr,QString Name,QString Lev,int Place,int NrOfItems)
+Product::Product(int IdNr,QString Name,QString Lev,int NrOfItems)
 {
     this->IdNr = IdNr;
     this->Name = Name;
     this->Lev = Lev;
-    this->Place = Place;
     this->NrOfItems = NrOfItems;
 }
 
@@ -68,12 +67,9 @@ QString Product::ToString() const
     QString ret;
     QString Tostring;
 
-    //Ändra till convert istället. setNumb.
-
     ret += "Serie Nr: " + Tostring.setNum(IdNr) + "\n";
     ret += "Namn: " + Name + "\n";
     ret += "Leverantör: " + Lev + "\n";
-    ret += "Lagerplats: " + Tostring.setNum(Place) + "\n";
     ret += "Saldo: " + Tostring.setNum(NrOfItems) + "\n";
 
     return ret;

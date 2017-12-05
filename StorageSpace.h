@@ -10,16 +10,26 @@ private:
     int Place;
     int Capacity;
     int IdNr;
+    int NrOfItems;
 
 public:
     StorageSpace();
-    StorageSpace(int Place, int Capacity, int IdNr);
+    StorageSpace(int Place, int Capacity, int IdNr, int NrOfItems);
     StorageSpace(int IdNr);
     ~StorageSpace();
 
     void clearPlace();
 
     QString toString() const;
+
+    int getIdNr();
+
+    void setCapacity(int Capacity);
+    void setIdNr(int IdNr);
+    void setNrOfItems(int NrOfItems);
+
+    int getNrOfItems();
+    int getCapacity();
 
     bool operator ==(StorageSpace other);
 };

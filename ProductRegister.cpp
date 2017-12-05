@@ -24,10 +24,14 @@ ProductRegister::~ProductRegister()
     delete[] ProductArray;
 }
 
-bool ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, int Place, int NrOfItems)
+int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity)
 {
-    Product toAdd(IdNr,name,lev,Place,NrOfItems);
+    //-2 = Lagret är fullt. -1 = Produkten finns inte i lagret. -3 = Försöker lägga till förmånga produkter på en plats.
+    // 0 = Lyckades att lägga till produkt på plats.
+
+    Product toAdd(IdNr,name,lev,NrOfItems);
     int index = productToFind(toAdd);
+
 
     if(index == -1)
     {
@@ -35,10 +39,25 @@ bool ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, 
         {
             expand();
         }
-        ProductArray[counter] = new Product(toAdd);
-        counter++;
+        int indexinStorage = Storage.FindEmptyStoragePlace();
+        int Succsess = Storage.addToStoragePlace(indexinStorage,StoragePlaceCapacity,IdNr,NrOfItems);
+
+        if(Succsess == 0)
+        {
+            ProductArray[counter] = new Product(toAdd);
+            counter++;
+            index = 0;
+        }
+        if (Succsess == -3)
+        {
+            index = -3;
+        }
+        if (Succsess == -2)
+        {
+            index = -2;
+        }
     }
-    return index == -1;
+    return index;
 }
 
 bool ProductRegister::removeProductFromRegister(int IdNr)

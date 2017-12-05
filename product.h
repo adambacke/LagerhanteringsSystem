@@ -9,12 +9,12 @@ private:
     int IdNr;
     QString Name;
     QString Lev;
-    int Place;
+    int Place; // Kanske inte skall användas...
     int NrOfItems;
 
 
 public:
-    Product(int IdNr,QString Name,QString Lev,int Place,int NrOfItems);
+    Product(int IdNr, QString Name, QString Lev, int NrOfItems);
     Product();
     Product(int IdNr);
     ~Product();
@@ -30,8 +30,6 @@ public:
     QString ToString() const;
 
     bool operator ==(Product other);
-
-
 
 };
 

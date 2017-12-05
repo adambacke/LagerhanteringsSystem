@@ -2,7 +2,7 @@
 
 Storage::Storage()
 {
-
+    //Tom just nu.....
 }
 
 Storage::Storage(int capacity)
@@ -10,6 +10,11 @@ Storage::Storage(int capacity)
     this->capacity = capacity;
     this->counter = 0;
     StorageArray = new StorageSpace*[capacity];
+
+    for(int i=0;i<capacity;i++)
+    {
+        StorageArray[i] = new StorageSpace(i,-1,-1,0);
+    }
 }
 
 Storage::~Storage()
@@ -21,22 +26,34 @@ Storage::~Storage()
     delete[] StorageArray;
 }
 
-bool Storage::addToStoragePlace(int Place, int StorageCapacity, int IdNr)
+int Storage::addToStoragePlace(int Place, int StorageCapacity, int IdNr, int NrOfItems)
 {
-    StorageSpace toAdd(Place, StorageCapacity, IdNr);
+    //-2 = Lagret är fullt. -1 = Produkten finns inte i lagret. -3 = Försöker lägga till förmånga produkter på en plats.
+    // 0 = Lyckades att lägga till produkt på plats.
+
+    StorageSpace toAdd(Place, StorageCapacity, IdNr, NrOfItems);
     int index = FindStoragePlace(toAdd);
 
     if(index == -1)
     {
         if(counter == capacity)
         {
-            //GE ETT MEDDLEANDE OM ATT ARRAYEN ÄR FULL! Alltså lagret
-            //Enum, För att skicka tillbaka koder beroende på vad som hänt.
+            index = -2;
         }
-        StorageArray[counter] = new StorageSpace(toAdd);
-        counter++;
+        else if(StorageCapacity < NrOfItems)
+        {
+            index = -3;
+        }
+        else
+        {
+            StorageArray[Place]->setCapacity(StorageCapacity);
+            StorageArray[Place]->setIdNr(IdNr);
+            StorageArray[Place]->setNrOfItems(NrOfItems);
+            counter++;
+            index = 0;
+        }
     }
-    return index == -1;
+    return index;
 }
 
 bool Storage::removeFromStoragePlace(const int IdNr)
@@ -47,8 +64,9 @@ bool Storage::removeFromStoragePlace(const int IdNr)
     if(index != -1)
     {
         delete StorageArray[index];
-        StorageArray[index] = StorageArray[--counter];
-        StorageArray[counter]->clearPlace();
+        StorageArray[index] = StorageArray[counter];
+        counter--;
+        //StorageArray[counter]->clearPlace();
     }
     return index != -1;
 }
@@ -62,6 +80,34 @@ int Storage::FindStoragePlace(StorageSpace& toFind) const
         {
             index = i;
             i = counter;
+        }
+    }
+    return index;
+}
+
+int Storage::findStoragePlaceWithIdNr(int IdNr) const
+{
+    int index = -1;
+
+    for(int i=0;i<counter;i++)
+    {
+        if(IdNr == StorageArray[i]->getIdNr())
+        {
+            index = i;
+            i = counter;
+        }
+    }
+    return index;
+}
+
+int Storage::FindEmptyStoragePlace()
+{
+    int index = -1;
+    for(int i=0;i<this->capacity;i++)
+    {
+        if(StorageArray[i]->getIdNr() == -1)
+        {
+            index = i;
         }
     }
     return index;
