@@ -24,8 +24,8 @@ void MainWindow::on_pushButton_clicked()
 
     QMessageBox test;
 
-    productregister.addProductToRegister(1,"Köttbullar","Felix",200,300,10);
-    productregister.addProductToRegister(2,"Makaroner","Barilla",200,400,10);
+   // productregister.addProductToRegister(1,"Köttbullar","Felix",200,300,10);
+   // productregister.addProductToRegister(2,"Makaroner","Barilla",200,400,10);
     test.setText(productregister.toString());
     test.exec();
 

@@ -18,11 +18,18 @@ ProductRegister::ProductRegister(int capacity, Storage *storage)
 
 ProductRegister::~ProductRegister()
 {
+    /*
     for(int i=0;i<counter;i++)
     {
         delete ProductArray[i];
     }
-    delete[] ProductArray;
+    delete[] ProductArray;b
+    */
+}
+
+int ProductRegister::getCounter() const
+{
+    return this->counter;
 }
 
 int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity, int PricePerItem)

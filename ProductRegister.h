@@ -13,11 +13,12 @@ private:
     Product **ProductArray;
     Storage* storage;
 
-
 public:
     ProductRegister();
     ProductRegister(int capacity, Storage *storage);
     ~ProductRegister();
+
+    int getCounter() const;
 
     int addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity, int PricePerItem);
     bool removeProductFromRegister(int IdNr);

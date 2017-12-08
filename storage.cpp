@@ -12,22 +12,17 @@ Storage::Storage(int capacity)
     this->capacity = capacity;
     this->counter = 0;
     StorageArray = new StorageSpace*[capacity];
-
-    /*
-    for(int i=0;i<capacity;i++)
-    {
-        StorageArray[i] = new StorageSpace(i,-1,-1,0);
-    }
-    */
 }
 
 Storage::~Storage()
 {
+
     for(int i=0;i<counter;i++)
     {
         delete StorageArray[i];
     }
     delete[] StorageArray;
+
 }
 
 int Storage::addToStoragePlace(int StorageCapacity, int IdNr, int NrOfItems)

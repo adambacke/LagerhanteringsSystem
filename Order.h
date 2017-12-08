@@ -11,18 +11,20 @@ private:
     QString name;
     int NrOfOrdeLines;
     OrderLine **OrderLines;
+    int Capacity;
 
 public:
     Order();
-    Order(int OrderNr, QString name, OrderLine **OrderLines);
+    Order(int OrderNr, QString name, OrderLine **OrderLines, int Capacity);
 
     int getOrderNr() const;
     QString getName() const;
     int getNrOfOrderLines() const;
 
-    int GetTotalValue() const;
+    int GetTotalValue(ProductRegister &produktregister) const;
 
     int addOrderLine(int IdNr, int NrOfItems);
+    void expand();
     bool removeOrderLine();
 
     QString toString() const;
