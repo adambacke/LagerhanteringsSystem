@@ -3,13 +3,11 @@
 StorageSpace::StorageSpace()
 {
     this->IdNr = -1;
-    this->Place = -1;
     this->Capacity = -1;
 }
 
-StorageSpace::StorageSpace(int Place, int Capacity, int IdNr, int NrOfItems)
+StorageSpace::StorageSpace(int Capacity, int IdNr, int NrOfItems)
 {
-    this->Place = Place;
     this->Capacity = Capacity;
     this->IdNr = IdNr;
     this->NrOfItems = NrOfItems;
@@ -18,7 +16,6 @@ StorageSpace::StorageSpace(int Place, int Capacity, int IdNr, int NrOfItems)
 StorageSpace::StorageSpace(int IdNr)
 {
     this->IdNr = IdNr;
-    this->Place = -1;
     this->Capacity = 0;
 }
 
@@ -38,7 +35,6 @@ QString StorageSpace::toString() const
     QString retVal;
     QString intConverter;
 
-    retVal += "Lagerplats: " + intConverter.setNum(Place) + "\n";
     retVal += "Serie Nr: " + intConverter.setNum(IdNr) + "\n";
     retVal += "Kapacitet: " + intConverter.setNum(Capacity) + "\n";
     retVal += "Saldo: " + intConverter.setNum(NrOfItems) + "\n";

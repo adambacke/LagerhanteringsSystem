@@ -7,14 +7,13 @@
 class StorageSpace
 {
 private:
-    int Place;
     int Capacity;
     int IdNr;
     int NrOfItems;
 
 public:
     StorageSpace();
-    StorageSpace(int Place, int Capacity, int IdNr, int NrOfItems);
+    StorageSpace(int Capacity, int IdNr, int NrOfItems);
     StorageSpace(int IdNr);
     ~StorageSpace();
 

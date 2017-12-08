@@ -2,7 +2,9 @@
 
 Storage::Storage()
 {
-    //Tom just nu.....
+    this->capacity = 0;
+    this->counter = 0;
+    StorageArray = new StorageSpace*[capacity];
 }
 
 Storage::Storage(int capacity)
@@ -11,10 +13,12 @@ Storage::Storage(int capacity)
     this->counter = 0;
     StorageArray = new StorageSpace*[capacity];
 
+    /*
     for(int i=0;i<capacity;i++)
     {
         StorageArray[i] = new StorageSpace(i,-1,-1,0);
     }
+    */
 }
 
 Storage::~Storage()
@@ -26,12 +30,12 @@ Storage::~Storage()
     delete[] StorageArray;
 }
 
-int Storage::addToStoragePlace(int Place, int StorageCapacity, int IdNr, int NrOfItems)
+int Storage::addToStoragePlace(int StorageCapacity, int IdNr, int NrOfItems)
 {
     //-2 = Lagret är fullt. -1 = Produkten finns inte i lagret. -3 = Försöker lägga till förmånga produkter på en plats.
     // 0 = Lyckades att lägga till produkt på plats.
 
-    StorageSpace toAdd(Place, StorageCapacity, IdNr, NrOfItems);
+    StorageSpace toAdd(StorageCapacity, IdNr, NrOfItems);
     int index = FindStoragePlace(toAdd);
 
     if(index == -1)
@@ -46,9 +50,7 @@ int Storage::addToStoragePlace(int Place, int StorageCapacity, int IdNr, int NrO
         }
         else
         {
-            StorageArray[Place]->setCapacity(StorageCapacity);
-            StorageArray[Place]->setIdNr(IdNr);
-            StorageArray[Place]->setNrOfItems(NrOfItems);
+            StorageArray[counter] = new StorageSpace(toAdd);
             counter++;
             index = 0;
         }
@@ -108,6 +110,7 @@ int Storage::FindEmptyStoragePlace()
         if(StorageArray[i]->getIdNr() == -1)
         {
             index = i;
+            i = capacity;
         }
     }
     return index;

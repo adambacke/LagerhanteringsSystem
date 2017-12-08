@@ -23,7 +23,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Product ab;
-    ProductRegister test2;
+    ProductRegister productregister;
+    Storage storage;
 };
 
 #endif // MAINWINDOW_H

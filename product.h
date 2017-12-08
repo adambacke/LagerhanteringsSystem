@@ -11,10 +11,11 @@ private:
     QString Lev;
     int Place; // Kanske inte skall användas...
     int NrOfItems;
+    int PricePerItem;
 
 
 public:
-    Product(int IdNr, QString Name, QString Lev, int NrOfItems);
+    Product(int IdNr, QString Name, QString Lev, int NrOfItems, int PricePerItem);
     Product();
     Product(int IdNr);
     ~Product();
@@ -24,6 +25,7 @@ public:
     int getIdNr() const;
     int getPlace() const;
     int getNrOfItems() const;
+    int getPricePerItem() const;
 
     void setNrOfItems(int toAdd);
 

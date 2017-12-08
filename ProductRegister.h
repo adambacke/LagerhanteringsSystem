@@ -11,14 +11,15 @@ private:
     int capacity;
     int counter;
     Product **ProductArray;
+    Storage* storage;
 
 
 public:
     ProductRegister();
-    ProductRegister(int capacity);
+    ProductRegister(int capacity, Storage *storage);
     ~ProductRegister();
 
-    int addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity);
+    int addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity, int PricePerItem);
     bool removeProductFromRegister(int IdNr);
     int productToFind(Product &toFind);
     void expand();

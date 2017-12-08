@@ -1,11 +1,12 @@
 #include "product.h"
 
-Product::Product(int IdNr,QString Name,QString Lev,int NrOfItems)
+Product::Product(int IdNr, QString Name, QString Lev, int NrOfItems, int PricePerItem)
 {
     this->IdNr = IdNr;
     this->Name = Name;
     this->Lev = Lev;
     this->NrOfItems = NrOfItems;
+    this->PricePerItem = PricePerItem;
 }
 
 Product::Product()
@@ -15,6 +16,7 @@ Product::Product()
     this->Lev = "";
     this->Place = -1;
     this->NrOfItems = 0;
+    this->PricePerItem = 0;
 }
 
 Product::Product(int IdNr)
@@ -57,6 +59,11 @@ int Product::getNrOfItems() const
     return this->NrOfItems;
 }
 
+int Product::getPricePerItem() const
+{
+    return this->PricePerItem;
+}
+
 void Product::setNrOfItems(int toAdd)
 {
     this->NrOfItems = this->NrOfItems + toAdd;
@@ -71,6 +78,7 @@ QString Product::ToString() const
     ret += "Namn: " + Name + "\n";
     ret += "Leverantör: " + Lev + "\n";
     ret += "Saldo: " + Tostring.setNum(NrOfItems) + "\n";
+    ret += "Styck Pris: " + Tostring.setNum(PricePerItem) + "\n";
 
     return ret;
 }

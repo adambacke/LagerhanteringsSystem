@@ -8,11 +8,12 @@ ProductRegister::ProductRegister()
 
 }
 
-ProductRegister::ProductRegister(int capacity)
+ProductRegister::ProductRegister(int capacity, Storage *storage)
 {
     this->capacity = capacity;
     this->counter = 0;
     ProductArray = new Product*[capacity];
+    this->storage = storage;
 }
 
 ProductRegister::~ProductRegister()
@@ -24,12 +25,12 @@ ProductRegister::~ProductRegister()
     delete[] ProductArray;
 }
 
-int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity)
+int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity, int PricePerItem)
 {
     //-2 = Lagret är fullt. -1 = Produkten finns inte i lagret. -3 = Försöker lägga till förmånga produkter på en plats.
     // 0 = Lyckades att lägga till produkt på plats.
 
-    Product toAdd(IdNr,name,lev,NrOfItems);
+    Product toAdd(IdNr,name,lev,NrOfItems, PricePerItem);
     int index = productToFind(toAdd);
 
 
@@ -39,8 +40,8 @@ int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, i
         {
             expand();
         }
-        int indexinStorage = Storage.FindEmptyStoragePlace();
-        int Succsess = Storage.addToStoragePlace(indexinStorage,StoragePlaceCapacity,IdNr,NrOfItems);
+
+        int Succsess = storage->addToStoragePlace(StoragePlaceCapacity,IdNr,NrOfItems);
 
         if(Succsess == 0)
         {

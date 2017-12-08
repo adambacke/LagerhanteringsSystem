@@ -30,7 +30,8 @@ SOURCES += \
     StorageSpace.cpp \
     storage.cpp \
     ProductRegister.cpp \
-    OrderLine.cpp
+    OrderLine.cpp \
+    Order.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     StorageSpace.h \
     storage.h \
     ProductRegister.h \
-    OrderLine.h
+    OrderLine.h \
+    Order.h
 
 FORMS += \
         mainwindow.ui

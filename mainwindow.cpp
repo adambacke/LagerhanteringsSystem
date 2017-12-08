@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-//#include "ProductRegister.h"
-//#include "storage.h"
-
 #include <QMessageBox>
 #include <QTextStream>
 
@@ -12,9 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ab =Product(1,"Adam","Backe",1,200);
-    ProductRegister test2 (3);
-    //test2.addProductToRegister(1,"Adam","Backe",1,200);
+    storage = Storage(10);
+    productregister = ProductRegister(3, &storage);
+
 }
 
 MainWindow::~MainWindow()
@@ -27,9 +24,9 @@ void MainWindow::on_pushButton_clicked()
 
     QMessageBox test;
 
-    test2.addProductToRegister(1,"Köttbullar","Felix",200,300);
-    test2.addProductToRegister(2,"Makaroner","Barilla",200,400);
-    test.setText(test2.toString());
+    productregister.addProductToRegister(1,"Köttbullar","Felix",200,300,10);
+    productregister.addProductToRegister(2,"Makaroner","Barilla",200,400,10);
+    test.setText(productregister.toString());
     test.exec();
 
 }

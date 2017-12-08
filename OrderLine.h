@@ -13,6 +13,11 @@ public:
     OrderLine(int IdNr, int NumberOfItems);
     ~OrderLine();
 
+    int getIdNr() const;
+    int getNumberOfItems() const;
+
+    bool operator == (OrderLine Other);
+
     //Implementera allt!!
 };
 
