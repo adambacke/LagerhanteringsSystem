@@ -2,7 +2,8 @@
 
 OrderLine::OrderLine()
 {
-
+    this->IdNr = 0;
+    this->NumberOfItems = 0;
 }
 
 OrderLine::OrderLine(int IdNr, int NumberOfItems)
@@ -33,5 +34,16 @@ bool OrderLine::operator ==(OrderLine Other)
     {
         retVal = true;
     }
+    return retVal;
+}
+
+QString OrderLine::toString()
+{
+    QString retVal;
+    QString Tostring;
+
+    retVal += Tostring.setNum(IdNr) + "\t";
+    retVal += Tostring.setNum(NumberOfItems) + "\n";
+
     return retVal;
 }

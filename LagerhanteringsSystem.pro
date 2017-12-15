@@ -31,7 +31,8 @@ SOURCES += \
     storage.cpp \
     ProductRegister.cpp \
     OrderLine.cpp \
-    Order.cpp
+    Order.cpp \
+    OrderRegister.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     storage.h \
     ProductRegister.h \
     OrderLine.h \
-    Order.h
+    Order.h \
+    OrderRegister.h
 
 FORMS += \
         mainwindow.ui

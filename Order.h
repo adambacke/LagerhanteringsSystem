@@ -9,13 +9,14 @@ class Order
 private:
     int OrderNr;
     QString name;
-    int NrOfOrdeLines;
+    int NrOfOrderLines;
     OrderLine **OrderLines;
     int Capacity;
 
 public:
     Order();
-    Order(int OrderNr, QString name, OrderLine **OrderLines, int Capacity);
+    Order(int OrderNr, QString name, int Capacity);
+    ~Order();
 
     int getOrderNr() const;
     QString getName() const;
@@ -23,7 +24,7 @@ public:
 
     int GetTotalValue(ProductRegister &produktregister) const;
 
-    int addOrderLine(int IdNr, int NrOfItems);
+    bool addOrderLine(int IdNr, int NrOfItems, ProductRegister &productregister);
     void expand();
     bool removeOrderLine();
 

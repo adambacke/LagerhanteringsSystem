@@ -18,13 +18,13 @@ ProductRegister::ProductRegister(int capacity, Storage *storage)
 
 ProductRegister::~ProductRegister()
 {
-    /*
+
     for(int i=0;i<counter;i++)
     {
         delete ProductArray[i];
     }
-    delete[] ProductArray;b
-    */
+    delete[] ProductArray;
+
 }
 
 int ProductRegister::getCounter() const
@@ -68,7 +68,7 @@ int ProductRegister::addProductToRegister(int IdNr, QString name, QString lev, i
     return index;
 }
 
-bool ProductRegister::removeProductFromRegister(int IdNr)
+bool ProductRegister::removeProductFromRegister(int IdNr, Storage &storage)
 {
     Product toRemove(IdNr);
     int index = productToFind(toRemove);
@@ -78,6 +78,7 @@ bool ProductRegister::removeProductFromRegister(int IdNr)
         delete ProductArray[index];
         ProductArray[index] = ProductArray[--counter];
         ProductArray[counter] = nullptr;
+        storage.removeFromStoragePlace(IdNr);
     }
     return index != -1;
 }
@@ -107,6 +108,26 @@ void ProductRegister::expand()
     }
     delete[] ProductArray;
     ProductArray = temp;
+}
+
+int ProductRegister::getProductIdNrOnPlace(int index)
+{
+    return ProductArray[index]->getIdNr();
+}
+
+int ProductRegister::getPricePerItemOnPlace(int index)
+{
+    return ProductArray[index]->getPricePerItem();
+}
+
+int ProductRegister::getNrOfItemsOnPlace(int index)
+{
+    return ProductArray[index]->getNrOfItems();
+}
+
+void ProductRegister::changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove)
+{
+    ProductArray[index]->setNrOfItems(-NrOfItemsToRemove);
 }
 
 QString ProductRegister::toString()

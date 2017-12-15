@@ -21,9 +21,15 @@ public:
     int getCounter() const;
 
     int addProductToRegister(int IdNr, QString name, QString lev, int NrOfItems, int StoragePlaceCapacity, int PricePerItem);
-    bool removeProductFromRegister(int IdNr);
+    bool removeProductFromRegister(int IdNr, Storage &storage);
     int productToFind(Product &toFind);
     void expand();
+
+    int getProductIdNrOnPlace(int index);
+    int getPricePerItemOnPlace(int index);
+    int getNrOfItemsOnPlace(int index);
+
+    void changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove);
 
     QString toString();
 };

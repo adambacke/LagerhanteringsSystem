@@ -1,6 +1,9 @@
 #ifndef ORDERLINE_H
 #define ORDERLINE_H
 
+#include <QString>
+
+
 
 class OrderLine
 {
@@ -18,7 +21,7 @@ public:
 
     bool operator == (OrderLine Other);
 
-    //Implementera allt!!
+    QString toString();
 };
 
 #endif // ORDERLINE_H
