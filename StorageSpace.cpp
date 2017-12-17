@@ -4,6 +4,7 @@ StorageSpace::StorageSpace()
 {
     this->IdNr = -1;
     this->Capacity = -1;
+    this->NrOfItems = 0;
 }
 
 StorageSpace::StorageSpace(int Capacity, int IdNr, int NrOfItems)
@@ -59,7 +60,7 @@ void StorageSpace::setIdNr(int IdNr)
 
 void StorageSpace::setNrOfItems(int NrOfItems)
 {
-    this->NrOfItems = NrOfItems;
+    this->NrOfItems = this->NrOfItems +  NrOfItems;
 }
 
 int StorageSpace::getNrOfItems()

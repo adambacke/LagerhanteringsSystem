@@ -1,5 +1,6 @@
 #ifndef STORAGE_H
 #define STORAGE_H
+#include <QString>
 #include "StorageSpace.h"
 
 
@@ -20,7 +21,11 @@ public:
     int FindStoragePlace(StorageSpace &toFind) const;
     int findStoragePlaceWithIdNr(int IdNr) const;
 
+    int getNrOfItemsOnIndex(int index);
+    void setNrOfItemsOnIndex(int index, int NrOfItemsToRemove);
+
     int FindEmptyStoragePlace();
+    QString toString();
 };
 
 #endif // STORAGE_H

@@ -96,6 +96,16 @@ int Storage::findStoragePlaceWithIdNr(int IdNr) const
     return index;
 }
 
+int Storage::getNrOfItemsOnIndex(int index)
+{
+    return StorageArray[index]->getNrOfItems();
+}
+
+void Storage::setNrOfItemsOnIndex(int index, int NrOfItemsToRemove)
+{
+    StorageArray[index]->setNrOfItems(-NrOfItemsToRemove);
+}
+
 int Storage::FindEmptyStoragePlace()
 {
     int index = -1;
@@ -108,4 +118,15 @@ int Storage::FindEmptyStoragePlace()
         }
     }
     return index;
+}
+
+QString Storage::toString()
+{
+    QString retVal;
+    for(int i=0;i<counter;i++)
+    {
+        retVal += StorageArray[i]->toString();
+        retVal += "\n";
+    }
+    return retVal;
 }

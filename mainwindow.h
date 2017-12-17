@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "ProductRegister.h"
 #include "storage.h"
+#include "OrderRegister.h"
 
 #include <QMainWindow>
 
@@ -23,8 +24,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Product ab;
-    ProductRegister productregister;
     Storage storage;
+    ProductRegister productregister;
+    OrderRegister orders;
 };
 
 #endif // MAINWINDOW_H

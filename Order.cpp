@@ -108,5 +108,4 @@ int Order::GetTotalValue(ProductRegister &produktregister) const
         }
     }
     return totalValue;
-
 }
