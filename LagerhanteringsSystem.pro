@@ -32,7 +32,10 @@ SOURCES += \
     ProductRegister.cpp \
     OrderLine.cpp \
     Order.cpp \
-    OrderRegister.cpp
+    OrderRegister.cpp \
+    addproduct.cpp \
+    removeproduct.cpp \
+    addorder.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +45,13 @@ HEADERS += \
     ProductRegister.h \
     OrderLine.h \
     Order.h \
-    OrderRegister.h
+    OrderRegister.h \
+    addproduct.h \
+    removeproduct.h \
+    addorder.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    addproduct.ui \
+    removeproduct.ui \
+    addorder.ui

@@ -61,7 +61,7 @@ bool Storage::removeFromStoragePlace(const int IdNr)
     if(index != -1)
     {
         delete StorageArray[index];
-        StorageArray[index] = StorageArray[counter];
+        StorageArray[index] = StorageArray[counter - 1];
         counter--;
     }
     return index != -1;

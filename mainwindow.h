@@ -21,6 +21,10 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_addProduct_clicked();
+
+    void on_removeProduct_clicked();
+
 private:
     Ui::MainWindow *ui;
     Product ab;
