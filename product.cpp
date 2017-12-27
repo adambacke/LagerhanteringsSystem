@@ -14,7 +14,6 @@ Product::Product()
     this->IdNr = 0;
     this->Name = "";
     this->Lev = "";
-    this->Place = -1;
     this->NrOfItems = 0;
     this->PricePerItem = 0;
 }
@@ -24,7 +23,6 @@ Product::Product(int IdNr)
     this->IdNr = IdNr;
     this->Name = "";
     this->Lev = "";
-    this->Place = -1;
     this->NrOfItems = 0;
 }
 
@@ -47,11 +45,6 @@ QString Product::getLev() const
 int Product::getIdNr() const
 {
     return this->IdNr;
-}
-
-int Product::getPlace() const
-{
-    return this->Place;
 }
 
 int Product::getNrOfItems() const

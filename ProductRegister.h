@@ -30,6 +30,7 @@ public:
     int getNrOfItemsOnPlace(int index);
 
     void changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove);
+    void addNrOfItemsOnPlace(int index, int NrOfItemsToAdd);
 
     QString toString();
 };

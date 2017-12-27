@@ -35,7 +35,9 @@ SOURCES += \
     OrderRegister.cpp \
     addproduct.cpp \
     removeproduct.cpp \
-    addorder.cpp
+    addorder.cpp \
+    handelorders.cpp \
+    changenrofitems.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,10 +50,14 @@ HEADERS += \
     OrderRegister.h \
     addproduct.h \
     removeproduct.h \
-    addorder.h
+    addorder.h \
+    handelorders.h \
+    changenrofitems.h
 
 FORMS += \
         mainwindow.ui \
     addproduct.ui \
     removeproduct.ui \
-    addorder.ui
+    addorder.ui \
+    handelorders.ui \
+    changenrofitems.ui

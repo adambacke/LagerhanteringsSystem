@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+#include "storage.h"
+#include "ProductRegister.h"
+#include "OrderRegister.h"
+
 namespace Ui {
 class AddOrder;
 }
@@ -12,11 +16,17 @@ class AddOrder : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddOrder(QWidget *parent = 0);
+    explicit AddOrder(Storage* storage,ProductRegister* productRegister, OrderRegister* orders, QWidget *parent = 0);
     ~AddOrder();
+
+private slots:
+    void on_buttonBox_accepted();
 
 private:
     Ui::AddOrder *ui;
+    Storage* storage;
+    ProductRegister* productRegister;
+    OrderRegister* orders;
 };
 
 #endif // ADDORDER_H

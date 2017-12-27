@@ -68,3 +68,38 @@ bool OrderRegister::addOrderLineTooOrder(int OrderNr, int IdNr, int NrOfItems, P
     }
     return retVal;
 }
+
+QString OrderRegister::toString()
+{
+    QString retVal;
+
+    for(int i=0;i<counter;i++)
+    {
+        retVal = retVal + OrderArray[i]->toString() + "\n";
+    }
+    return retVal;
+}
+
+QString OrderRegister::toStringSpecific(int OrderNr)
+{
+    QString retVal;
+    for(int i=0; i<counter;i++)
+    {
+        if(OrderNr == OrderArray[i]->getOrderNr())
+        {
+            retVal = OrderArray[i]->toString();
+            i = counter;
+        }
+    }
+    return retVal;
+}
+
+int OrderRegister::getOrderNrAtIndex(int index) const
+{
+    return OrderArray[index]->getOrderNr();
+}
+
+int OrderRegister::getTotalValueAtIndex(int index, ProductRegister &produkt) const
+{
+    return OrderArray[index]->GetTotalValue(produkt);
+}

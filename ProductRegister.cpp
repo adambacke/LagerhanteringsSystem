@@ -133,6 +133,14 @@ void ProductRegister::changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove)
     storage->setNrOfItemsOnIndex(storageIndex,NrOfItemsToRemove);
 }
 
+void ProductRegister::addNrOfItemsOnPlace(int index, int NrOfItemsToAdd)
+{
+    ProductArray[index]->setNrOfItems(NrOfItemsToAdd);
+    int IdNr = ProductArray[index]->getIdNr();
+    int storageIndex = storage->findStoragePlaceWithIdNr(IdNr);
+    storage->setNrOfItemsOnIndex(storageIndex, -NrOfItemsToAdd);
+}
+
 QString ProductRegister::toString()
 {
     QString retVal;

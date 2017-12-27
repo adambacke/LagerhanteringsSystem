@@ -106,6 +106,11 @@ void Storage::setNrOfItemsOnIndex(int index, int NrOfItemsToRemove)
     StorageArray[index]->setNrOfItems(-NrOfItemsToRemove);
 }
 
+int Storage::getStorageCapacityOnIndex(int index)
+{
+    return StorageArray[index]->getCapacity();
+}
+
 int Storage::FindEmptyStoragePlace()
 {
     int index = -1;

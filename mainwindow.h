@@ -25,6 +25,14 @@ private slots:
 
     void on_removeProduct_clicked();
 
+    void on_addOrder_clicked();
+
+    void on_handelOrders_clicked();
+
+    void on_ShowAll_clicked();
+
+    void on_Clear_clicked();
+
 private:
     Ui::MainWindow *ui;
     Product ab;

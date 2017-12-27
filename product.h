@@ -9,7 +9,6 @@ private:
     int IdNr;
     QString Name;
     QString Lev;
-    int Place; // Kanske inte skall användas...
     int NrOfItems;
     int PricePerItem;
 
@@ -23,7 +22,6 @@ public:
     QString getName() const;
     QString getLev() const;
     int getIdNr() const;
-    int getPlace() const;
     int getNrOfItems() const;
     int getPricePerItem() const;
 

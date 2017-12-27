@@ -4,6 +4,7 @@
 #include "Order.h"
 #include "ProductRegister.h"
 
+
 class OrderRegister
 {
 private:
@@ -23,6 +24,12 @@ public:
 
     void addOrderToRegister(int OrderNr, QString name, int NrOfrderLines);
     bool addOrderLineTooOrder(int OrderNr, int IdNr, int NrOfItems, ProductRegister &productregister);
+
+    QString toString();
+    QString toStringSpecific(int OrderNr);
+
+    int getOrderNrAtIndex(int index) const;
+    int getTotalValueAtIndex(int index, ProductRegister &produkt) const;
 };
 
 #endif // ORDERREGISTER_H

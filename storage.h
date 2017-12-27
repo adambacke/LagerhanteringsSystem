@@ -23,6 +23,7 @@ public:
 
     int getNrOfItemsOnIndex(int index);
     void setNrOfItemsOnIndex(int index, int NrOfItemsToRemove);
+    int getStorageCapacityOnIndex(int index);
 
     int FindEmptyStoragePlace();
     QString toString();

@@ -80,9 +80,13 @@ void Order::expand()
 QString Order::toString() const
 {
     QString retVal;
+    QString ToInt;
 
-    retVal += this->OrderNr + "\n";
-    retVal += this->name + "\n";
+    retVal += "Order nummer: " + ToInt.setNum(OrderNr) + "\n";
+    retVal += "Namn: " + this->name + "\n";
+    retVal += "Artikel nr:";
+    retVal += "\t";
+    retVal += "Antal produkter:\n";
     for(int i=0;i<NrOfOrderLines;i++)
     {
         retVal += OrderLines[i]->toString();
@@ -94,7 +98,7 @@ int Order::GetTotalValue(ProductRegister &produktregister) const
 {
 
     int IdNr;
-    int totalValue;
+    int totalValue = 0;
     for(int i=0;i<NrOfOrderLines;i++)
     {
         IdNr = this->OrderLines[i]->getIdNr();
