@@ -19,8 +19,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_addProduct_clicked();
 
     void on_removeProduct_clicked();
@@ -32,6 +30,8 @@ private slots:
     void on_ShowAll_clicked();
 
     void on_Clear_clicked();
+
+    void on_end_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -7,6 +7,7 @@
 
 #include <QMessageBox>
 #include <QTextStream>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,24 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-
-    //QMessageBox test;
-    //bool retval;
-
-    productregister.addProductToRegister(1,"Köttbullar","Felix",200,300,10);
-    productregister.addProductToRegister(2,"Makaroner","Barilla",200,400,10);
-    productregister.addProductToRegister(3,"Ketchup","Felix",100,150,30);
-    //orders.addOrderToRegister(1,"Adam",2);
-    //retval = orders.addOrderLineTooOrder(1,1,20,productregister);
-    //retval = orders.addOrderLineTooOrder(1,2,40,productregister);
-    //retval = productregister.removeProductFromRegister(1,storage);
-    //test.setText(productregister.toString());
-    //test.exec();
-
 }
 
 void MainWindow::on_addProduct_clicked()
@@ -78,4 +61,31 @@ void MainWindow::on_ShowAll_clicked()
 void MainWindow::on_Clear_clicked()
 {
     ui->showAllProducts->clear();
+}
+
+void MainWindow::on_end_clicked()
+{
+    QFile productsFile("products.txt");
+
+    if(productsFile.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out (&productsFile);
+        out << productregister.getCounter() << "\n";
+
+        for(int i=0;i<productregister.getCounter();i++)
+        {
+            out << productregister.getProductIdNrOnPlace(i) << "\n";
+            out << productregister.getNameOnPlace(i) << "\n";
+            out << productregister.getLevOnPlace(i) << "\n";
+            out << productregister.getNrOfItemsOnPlace(i) << "\n";
+            out << productregister.getPricePerItemOnPlace(i) << "\n";
+            out << storage.getStorageCapacityOnIndex(i) << "\n";
+        }
+    }
+
+
+    productsFile.flush();
+    productsFile.close();
+
+    close();
 }

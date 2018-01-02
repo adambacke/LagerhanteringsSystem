@@ -28,6 +28,8 @@ public:
     int getProductIdNrOnPlace(int index);
     int getPricePerItemOnPlace(int index);
     int getNrOfItemsOnPlace(int index);
+    QString getNameOnPlace(int index);
+    QString getLevOnPlace(int index);
 
     void changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove);
     void addNrOfItemsOnPlace(int index, int NrOfItemsToAdd);

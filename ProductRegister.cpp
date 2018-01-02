@@ -125,6 +125,16 @@ int ProductRegister::getNrOfItemsOnPlace(int index)
     return ProductArray[index]->getNrOfItems();
 }
 
+QString ProductRegister::getNameOnPlace(int index)
+{
+    return ProductArray[index]->getName();
+}
+
+QString ProductRegister::getLevOnPlace(int index)
+{
+    return ProductArray[index]->getLev();
+}
+
 void ProductRegister::changeNrOfItemsOnPlace(int index, int NrOfItemsToRemove)
 {
     ProductArray[index]->setNrOfItems(-NrOfItemsToRemove);
