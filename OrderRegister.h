@@ -30,6 +30,11 @@ public:
 
     int getOrderNrAtIndex(int index) const;
     int getTotalValueAtIndex(int index, ProductRegister &produkt) const;
+    int getOrderNrOfOrderLinesAtIndex(int index) const;
+    QString getOrderNameAtIndex(int index) const;
+
+    int getOrderLineIdNrAtIndex(int index, int orderLineIndex);
+    int getOrderLineNrOfItemsAtIndex(int index, int orderLineIndex);
 };
 
 #endif // ORDERREGISTER_H

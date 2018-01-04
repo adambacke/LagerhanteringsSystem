@@ -77,6 +77,16 @@ void Order::expand()
     OrderLines = temp;
 }
 
+int Order::getOrderLineIdNrAtIndex(int index)
+{
+    return OrderLines[index]->getIdNr();
+}
+
+int Order::getOrderLineNrOfItemsAtIndex(int index)
+{
+    return OrderLines[index]->getNumberOfItems();
+}
+
 QString Order::toString() const
 {
     QString retVal;

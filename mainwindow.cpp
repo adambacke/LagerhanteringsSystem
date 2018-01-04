@@ -18,6 +18,28 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QFile readProducts ("products.txt");
+    if(readProducts.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream in(&readProducts);
+        QString nrOfProductsString = in.readLine();
+        int nrOfProducts = nrOfProductsString.toInt();
+
+        for(int i=0;i<nrOfProducts;i++)
+        {
+            QString IdNrString = in.readLine();
+            int IdNr = IdNrString.toInt();
+            QString name = in.readLine();
+            QString lev = in.readLine();
+            QString NrOfItemsOnPlaceString = in.readLine();
+            int NrOfItems = NrOfItemsOnPlaceString.toInt();
+            QString PricePerItemString = in.readLine();
+            int PricePerItem = PricePerItemString.toInt();
+            QString CapacityString = in.readLine();
+            int capacity = CapacityString.toInt();
+            productregister.addProductToRegister(IdNr,name,lev,NrOfItems,capacity,PricePerItem);
+        }
+    }
 }
 
 MainWindow::~MainWindow()
@@ -66,6 +88,7 @@ void MainWindow::on_Clear_clicked()
 void MainWindow::on_end_clicked()
 {
     QFile productsFile("products.txt");
+    QFile ordersFile("orders.txt");
 
     if(productsFile.open(QFile::WriteOnly | QFile::Text))
     {
@@ -81,6 +104,25 @@ void MainWindow::on_end_clicked()
             out << productregister.getPricePerItemOnPlace(i) << "\n";
             out << storage.getStorageCapacityOnIndex(i) << "\n";
         }
+    }
+
+    if(ordersFile.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream out2 (&ordersFile);
+        out2 << orders.getCounter() << "\n";
+        for(int i=0;i<orders.getCounter();i++)
+        {
+            out2 << orders.getOrderNrAtIndex(i) << "\n";
+            out2 << orders.getOrderNameAtIndex(i) << "\n";
+            out2 << orders.getOrderNrOfOrderLinesAtIndex(i) << "\n";
+            for(int n=0;n<orders.getOrderNrOfOrderLinesAtIndex(i);n++)
+            {
+                out2 << orders.getOrderLineIdNrAtIndex(i,n) << "\n";
+                out2 << orders.getOrderLineNrOfItemsAtIndex(i,n) << "\n";
+            }
+        }
+
+
     }
 
 

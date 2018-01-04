@@ -28,6 +28,9 @@ public:
     void expand();
     bool removeOrderLine();
 
+    int getOrderLineIdNrAtIndex(int index);
+    int getOrderLineNrOfItemsAtIndex(int index);
+
     QString toString() const;
 };
 

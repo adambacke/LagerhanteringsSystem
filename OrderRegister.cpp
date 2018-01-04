@@ -103,3 +103,23 @@ int OrderRegister::getTotalValueAtIndex(int index, ProductRegister &produkt) con
 {
     return OrderArray[index]->GetTotalValue(produkt);
 }
+
+int OrderRegister::getOrderNrOfOrderLinesAtIndex(int index) const
+{
+    return OrderArray[index]->getNrOfOrderLines();
+}
+
+QString OrderRegister::getOrderNameAtIndex(int index) const
+{
+    return OrderArray[index]->getName();
+}
+
+int OrderRegister::getOrderLineIdNrAtIndex(int index, int orderLineIndex)
+{
+    return OrderArray[index]->getOrderLineIdNrAtIndex(orderLineIndex);
+}
+
+int OrderRegister::getOrderLineNrOfItemsAtIndex(int index, int orderLineIndex)
+{
+    return OrderArray[index]->getOrderLineNrOfItemsAtIndex(orderLineIndex);
+}
