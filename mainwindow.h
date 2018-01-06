@@ -5,6 +5,7 @@
 #include "OrderRegister.h"
 
 #include <QMainWindow>
+#include <QTimer>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
 
 private slots:
     void on_addProduct_clicked();
@@ -33,12 +35,19 @@ private slots:
 
     void on_end_clicked();
 
+    void on_showStorageButton_clicked();
+
+    void on_clearStorage_clicked();
+
+    void qTimer();
+
 private:
     Ui::MainWindow *ui;
     Product ab;
     Storage storage;
     ProductRegister productregister;
     OrderRegister orders;
+    QTimer *timer;
 };
 
 #endif // MAINWINDOW_H

@@ -111,6 +111,16 @@ int Storage::getStorageCapacityOnIndex(int index)
     return StorageArray[index]->getCapacity();
 }
 
+int Storage::getCounter()
+{
+    return this->counter;
+}
+
+int Storage::getCapacity()
+{
+    return this->capacity;
+}
+
 int Storage::FindEmptyStoragePlace()
 {
     int index = -1;
@@ -128,8 +138,10 @@ int Storage::FindEmptyStoragePlace()
 QString Storage::toString()
 {
     QString retVal;
+    QString Tostring;
     for(int i=0;i<counter;i++)
     {
+        retVal += "Plats: " + Tostring.setNum(i+1) + "\n";
         retVal += StorageArray[i]->toString();
         retVal += "\n";
     }

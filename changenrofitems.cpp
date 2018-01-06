@@ -10,6 +10,7 @@ changeNrOfItems::changeNrOfItems(Storage *storage, ProductRegister *productregis
     this->productregister = productregister;
     this->orders = orders;
     ui->setupUi(this);
+    this->setWindowTitle("Ändra saldo");
 }
 
 changeNrOfItems::~changeNrOfItems()

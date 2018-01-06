@@ -17,8 +17,12 @@ MainWindow::MainWindow(QWidget *parent) :
     orders(3)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Lagersystem");
+
 
     QFile readProducts ("products.txt");
+    QFile readOrders("Orders.txt");
+
     if(readProducts.open(QFile::ReadOnly | QFile::Text))
     {
         QTextStream in(&readProducts);
@@ -40,6 +44,42 @@ MainWindow::MainWindow(QWidget *parent) :
             productregister.addProductToRegister(IdNr,name,lev,NrOfItems,capacity,PricePerItem);
         }
     }
+
+    if(readOrders.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream in2 (&readOrders);
+        QString nrOfOrdersString = in2.readLine();
+        int nrOfOrders = nrOfOrdersString.toInt();
+
+        for(int i=0;i < nrOfOrders;i++)
+        {
+            QString OrderNrString = in2.readLine();
+            int OrderNr = OrderNrString.toInt();
+            QString name = in2.readLine();
+            orders.addOrderToRegister(OrderNr,name,2);
+            QString OrderLinesString = in2.readLine();
+            int OrderLines = OrderLinesString.toInt();
+            for(int n=0;n<OrderLines;n++)
+            {
+                QString IdNrString = in2.readLine();
+                int IdNr = IdNrString.toInt();
+                QString NrOfItemsString = in2.readLine();
+                int NrOfItems = NrOfItemsString.toInt();
+                orders.addOrderLineTooOrder(OrderNr,IdNr,NrOfItems,productregister);
+                for(int t =0;t<productregister.getCounter();t++)
+                {
+                    if(IdNr == productregister.getProductIdNrOnPlace(t))
+                    {
+                        productregister.addNrOfItemsOnPlace(t,NrOfItems);
+                        t = productregister.getCounter();
+                    }
+                }
+            }
+        }
+    }
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(qTimer()));
+    timer->start(2000);
 }
 
 MainWindow::~MainWindow()
@@ -121,13 +161,30 @@ void MainWindow::on_end_clicked()
                 out2 << orders.getOrderLineNrOfItemsAtIndex(i,n) << "\n";
             }
         }
-
-
     }
-
-
     productsFile.flush();
     productsFile.close();
 
     close();
+}
+
+void MainWindow::on_showStorageButton_clicked()
+{
+     ui->showStorage->setText(storage.toString());
+}
+
+void MainWindow::on_clearStorage_clicked()
+{
+    ui->showStorage->clear();
+}
+
+void MainWindow::qTimer()
+{
+    int NrOfPlacesFull = storage.getCounter();
+    float NrOfPlaces = storage.getCapacity();
+
+    float procent = (NrOfPlacesFull/NrOfPlaces)*100;
+
+    ui->progressBarstorag->setValue(procent);
+    ui->NrOfOrders->display(orders.getCounter());
 }

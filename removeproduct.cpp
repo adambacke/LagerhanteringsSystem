@@ -9,6 +9,7 @@ removeProduct::removeProduct(Storage* storage,ProductRegister* productRegister,Q
     this->storage = storage;
     this->productRegister = productRegister;
     ui->setupUi(this);
+    this->setWindowTitle("Ta bort en produkt");
 }
 
 removeProduct::~removeProduct()

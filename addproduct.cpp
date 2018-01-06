@@ -9,6 +9,7 @@ AddProduct::AddProduct(Storage* storage,ProductRegister* productRegister, QWidge
     this->storage = storage;
     this->productRegister = productRegister;
     ui->setupUi(this);
+    this->setWindowTitle("Lägg till produkt");
 }
 
 AddProduct::~AddProduct()

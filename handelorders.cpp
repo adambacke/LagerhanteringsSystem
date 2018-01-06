@@ -12,6 +12,7 @@ handelOrders::handelOrders(Storage *storage, ProductRegister *productregister, O
     this->productregister = productregister;
     this->orders = orders;
     ui->setupUi(this);
+    this->setWindowTitle("Hantera ordrar");
 }
 
 handelOrders::~handelOrders()

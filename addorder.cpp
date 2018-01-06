@@ -10,6 +10,7 @@ AddOrder::AddOrder(Storage* storage,ProductRegister* productRegister, OrderRegis
     this->productRegister = productRegister;
     this->orders = orders;
     ui->setupUi(this);
+    this->setWindowTitle("Lägg till order");
 }
 
 AddOrder::~AddOrder()
