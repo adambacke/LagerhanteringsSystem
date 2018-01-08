@@ -22,7 +22,7 @@ public:
 
     void expand();
 
-    void addOrderToRegister(int OrderNr, QString name, int NrOfrderLines);
+    bool addOrderToRegister(int OrderNr, QString name, int NrOfrderLines);
     bool addOrderLineTooOrder(int OrderNr, int IdNr, int NrOfItems, ProductRegister &productregister);
 
     QString toString();

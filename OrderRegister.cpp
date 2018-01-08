@@ -45,14 +45,26 @@ void OrderRegister::expand()
     OrderArray = temp;
 }
 
-void OrderRegister::addOrderToRegister(int OrderNr, QString name, int NrOfrderLines)
+bool OrderRegister::addOrderToRegister(int OrderNr, QString name, int NrOfrderLines)
 {
+    bool retVal = false;
     if(counter == capacity)
     {
         expand();
     }
-    OrderArray[counter] = new Order(OrderNr,name,NrOfrderLines);
-    counter++;
+    for(int i=0;i<counter;i++)
+    {
+        if(OrderNr == OrderArray[i]->getOrderNr())
+        {
+            retVal = true;
+        }
+    }
+    if(retVal == false)
+    {
+        OrderArray[counter] = new Order(OrderNr,name,NrOfrderLines);
+        counter++;
+    }
+    return retVal;
 }
 
 bool OrderRegister::addOrderLineTooOrder(int OrderNr, int IdNr, int NrOfItems, ProductRegister &productregister)
@@ -62,8 +74,7 @@ bool OrderRegister::addOrderLineTooOrder(int OrderNr, int IdNr, int NrOfItems, P
     {
         if(OrderNr == OrderArray[i]->getOrderNr())
         {
-            OrderArray[i]->addOrderLine(IdNr,NrOfItems,productregister);
-            retVal = true;
+            retVal = OrderArray[i]->addOrderLine(IdNr,NrOfItems,productregister);
         }
     }
     return retVal;

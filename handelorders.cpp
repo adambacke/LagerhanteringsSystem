@@ -34,7 +34,7 @@ void handelOrders::on_ShowOrder_clicked()
         int OrderNr = OrderNrString.toInt();
 
         QString OrderString = orders->toStringSpecific(OrderNr);
-        int index;
+        int index = -1;
         for(int i=0;i<orders->getCounter();i++)
         {
             if(OrderNr == orders->getOrderNrAtIndex(i))
@@ -43,9 +43,16 @@ void handelOrders::on_ShowOrder_clicked()
                 i = orders->getCounter();
             }
         }
-        QString temp;
-        OrderString = OrderString + "Totalt Ordervärde: " + temp.setNum(orders->getTotalValueAtIndex(index,*productregister)) + " kr";
-        ui->textBrowser->setText(OrderString);
+        if(index == -1)
+        {
+            ui->textBrowser->setText("Ordernummret finns inte i registret");
+        }
+        else
+        {
+            QString temp;
+            OrderString = OrderString + "Totalt Ordervärde: " + temp.setNum(orders->getTotalValueAtIndex(index,*productregister)) + " kr";
+            ui->textBrowser->setText(OrderString);
+        }
     }
 }
 

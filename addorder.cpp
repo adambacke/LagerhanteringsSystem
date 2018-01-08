@@ -26,12 +26,16 @@ void AddOrder::on_buttonBox_accepted()
     QString Name = ui->Name->text();
     OrderNr = OrderNrString.toInt();
 
-    orders->addOrderToRegister(OrderNr,Name,1);
-
+    bool answer = orders->addOrderToRegister(OrderNr,Name,1);
     QMessageBox ans;
-
-    ans.setText("Ordern är tillagd");
-
+    if(answer == false)
+    {
+        ans.setText("Ordern är tillagd");
+    }
+    else
+    {
+         ans.setText("OrderNummret finns redan i registret");
+    }
     ans.exec();
 
 }

@@ -27,19 +27,6 @@
      <string>Avsluta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="handelOrders">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>120</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Hantera Ordrar</string>
-    </property>
-   </widget>
    <widget class="QTextBrowser" name="showAllProducts">
     <property name="geometry">
      <rect>
@@ -54,39 +41,13 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
-      <width>91</width>
+      <y>40</y>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Ändra saldo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="removeProduct">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>20</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ta Bort Produkt</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="addProduct">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Lägg till Produkt</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="showStorage">
@@ -117,28 +78,12 @@
      <rect>
       <x>10</x>
       <y>250</y>
-      <width>81</width>
+      <width>101</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Hur fullt är lagret</string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="NrOfOrders">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>180</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="segmentStyle">
-     <enum>QLCDNumber::Flat</enum>
+     <string>Hur fullt är lagret:</string>
     </property>
    </widget>
    <widget class="QWidget" name="">
@@ -188,6 +133,72 @@
       <widget class="QPushButton" name="clearStorage">
        <property name="text">
         <string>Rensa</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>110</y>
+      <width>84</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Antal ordrar:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLCDNumber" name="NrOfOrders">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="segmentStyle">
+          <enum>QLCDNumber::Flat</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="handelOrders">
+       <property name="text">
+        <string>Hantera Ordrar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>175</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="addProduct">
+       <property name="text">
+        <string>Lägg till Produkt</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="removeProduct">
+       <property name="text">
+        <string>Ta Bort Produkt</string>
        </property>
       </widget>
      </item>
